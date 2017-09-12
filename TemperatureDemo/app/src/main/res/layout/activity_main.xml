@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.example.yy.temperaturedemo.TemperatureView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/temperature_color_number_view"/>
+    android:id="@+id/temperature_color_number_view"
+    app:max_temperature="27"
+    app:min_temperature="16"
+    app:thumb_color="#ffffff"
+    app:thumb_border_color="#00000000"
+    app:background_start_color="@color/temperature_color_first"
+    app:background_middle_color="@color/temperature_color_second"
+    app:background_end_color="@color/temperature_color_third"/>

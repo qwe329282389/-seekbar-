@@ -1,6 +1,8 @@
 package com.example.yy.temperaturedemo;
 
 import android.content.Context;
+import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,8 +21,8 @@ import java.util.List;
 
 public class TemperatureView extends LinearLayout{
 
-    public static final int MAX_TEMPERATURE = 27;//最高温度
-    public static final int MIN_TEMPERATURE = 16;//最低温度
+    public static int MAX_TEMPERATURE = 27;//最高温度
+    public static int MIN_TEMPERATURE = 16;//最低温度
 
     private VerticalSeekBar verticalSeekBar;
     private ListView temperature_number_lv;
@@ -41,13 +43,13 @@ public class TemperatureView extends LinearLayout{
     public TemperatureView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mContext = context;
-        init();
+        init(attrs);
     }
 
     /**
      * 初始化view
      */
-    private void init() {
+    private void init(AttributeSet attrs) {
         //初始化数据
         LayoutInflater.from(mContext).inflate(R.layout.layout_temperature_view,this);
         temperature_number_lv = (ListView) findViewById(R.id.temperature_number_lv);
@@ -77,6 +79,17 @@ public class TemperatureView extends LinearLayout{
             public void onStopTrackingTouch(View view, float progress) {
             }
         });
+
+        //自定义属性
+        TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.TemperatureView);
+        MAX_TEMPERATURE = typedArray.getInteger(R.styleable.TemperatureView_max_temperature,MAX_TEMPERATURE);
+        MIN_TEMPERATURE = typedArray.getInteger(R.styleable.TemperatureView_min_temperature,MIN_TEMPERATURE);
+        verticalSeekBar.setmThumbColor(typedArray.getColor(R.styleable.TemperatureView_thumb_color, Color.WHITE));
+        verticalSeekBar.setmThumbBorderColor(typedArray.getColor(R.styleable.TemperatureView_thumb_border_color, Color.TRANSPARENT));
+        int startColor = typedArray.getColor(R.styleable.TemperatureView_background_start_color,mContext.getResources().getColor(R.color.temperature_color_first));
+        int secondColor = typedArray.getColor(R.styleable.TemperatureView_background_middle_color,mContext.getResources().getColor(R.color.temperature_color_second));
+        int thirdColor = typedArray.getColor(R.styleable.TemperatureView_background_end_color,mContext.getResources().getColor(R.color.temperature_color_third));
+        verticalSeekBar.setColorArray(new int[]{startColor,secondColor,thirdColor});
     }
 
     /**

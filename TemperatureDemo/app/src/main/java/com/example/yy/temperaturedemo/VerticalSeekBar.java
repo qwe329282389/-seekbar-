@@ -17,14 +17,12 @@ import android.view.View;
  */
 
 public class VerticalSeekBar extends View {
-    private static final String TAG = VerticalSeekBar.class.getSimpleName();
-    private int thumbColor = Color.WHITE;
-    private int thumbBorderColor = Color.TRANSPARENT;
+    private int mThumbColor = Color.WHITE;
+    private int mThumbBorderColor = Color.TRANSPARENT;
     private int[] colorArray;
     private float x, y;
     private float mRadius;
     private float progress;
-    private float maxCount = 100f;
     private float sLeft, sTop, sRight, sBottom;
     private float sWidth, sHeight;
     private LinearGradient linearGradient;
@@ -42,6 +40,18 @@ public class VerticalSeekBar extends View {
         super(context, attrs);
         mContext = context;
         init();
+    }
+
+    public void setmThumbColor(int mThumbColor) {
+        this.mThumbColor = mThumbColor;
+    }
+
+    public void setmThumbBorderColor(int mThumbBorderColor) {
+        this.mThumbBorderColor = mThumbBorderColor;
+    }
+
+    public void setColorArray(int[] colorArray) {
+        this.colorArray = colorArray;
     }
 
     @Override
@@ -97,10 +107,10 @@ public class VerticalSeekBar extends View {
         y = y > sHeight - mRadius ? sHeight - mRadius : y;
         thumbPaint.setAntiAlias(true);
         thumbPaint.setStyle(Paint.Style.FILL);
-        thumbPaint.setColor(thumbColor);
+        thumbPaint.setColor(mThumbColor);
         canvas.drawCircle(x, y, mRadius, thumbPaint);
         thumbPaint.setStyle(Paint.Style.STROKE);
-        thumbPaint.setColor(thumbBorderColor);
+        thumbPaint.setColor(mThumbBorderColor);
         thumbPaint.setStrokeWidth(20);
         canvas.drawCircle(x, y, mRadius, thumbPaint);
     }
