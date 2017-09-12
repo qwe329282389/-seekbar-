@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_main"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <RelativeLayout
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/temperature_number_ll">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="HIGH"
+            android:gravity="center"
+            android:id="@+id/temprature_number_high_tv"
+            android:layout_centerHorizontal="true"/>
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/temperature_number_lv"
+            android:divider="@null"
+            android:scrollbars="none"
+            android:layout_below="@+id/temprature_number_high_tv"
+            android:layout_centerHorizontal="true"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="LOW"
+            android:gravity="center"
+            android:layout_below="@id/temperature_number_lv"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+
+
+    <com.example.yy.temperaturedemo.VerticalSeekBar
+        android:layout_width="10dp"
+        android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/seek_temperature_color"
+        android:layout_toRightOf="@id/temperature_number_ll"
+        android:layout_alignTop="@id/temperature_number_ll"
+        android:layout_alignBottom="@id/temperature_number_ll"/>
+</RelativeLayout>
