@@ -135,7 +135,7 @@ public class VerticalSeekBar extends View {
                     break;
                 case MotionEvent.ACTION_MOVE:
                     if (onStateChangeListener != null) {
-                        onStateChangeListener.OnStateChangeListener(this, listProgress);
+                        onStateChangeListener.onStateChangeListener(this, listProgress);
                     }
                     setProgress(progress);
                     this.invalidate();
@@ -147,7 +147,7 @@ public class VerticalSeekBar extends View {
 
 
     public interface OnStateChangeListener {
-        void OnStateChangeListener(View view, float progress);
+        void onStateChangeListener(View view, float progress);
 
         void onStopTrackingTouch(View view, float progress);
     }

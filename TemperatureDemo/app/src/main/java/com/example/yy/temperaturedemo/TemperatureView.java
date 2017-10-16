@@ -65,7 +65,7 @@ public class TemperatureView extends LinearLayout{
         mMaxIndex = MAX_TEMPERATURE-MIN_TEMPERATURE;
         verticalSeekBar.setOnStateChangeListener(new VerticalSeekBar.OnStateChangeListener() {
             @Override
-            public void OnStateChangeListener(View view, float progress) {
+            public void onStateChangeListener(View view, float progress) {
                 if (progress < 0) {
                     progress = 0;
                 }
@@ -77,6 +77,7 @@ public class TemperatureView extends LinearLayout{
 
             @Override
             public void onStopTrackingTouch(View view, float progress) {
+                onStateChangeListener(view,progress);
             }
         });
 
