@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TemperatureView">
+        <attr name="max_temperature" format="integer"/>
+        <attr name="min_temperature" format="integer"/>
+        <attr name="thumb_color" format="color"/>
+        <attr name="thumb_border_color" format="color"/>
+        <attr name="background_start_color" format="color"/>
+        <attr name="background_middle_color" format="color"/>
+        <attr name="background_end_color" format="color"/>
+    </declare-styleable>
+</resources>
